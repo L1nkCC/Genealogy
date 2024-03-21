@@ -1,0 +1,35 @@
+-----------------------------------------------------------------------------------------------------
+					README
+		  		Class:	CS315
+				Author: Connor Leslie
+				Date:	5/5/2021
+-----------------------------------------------------------------------------------------------------
+
+			Description: constructs a repersenation
+		of a genealogy and can find the closest Relation between
+		any two given people with the information that it has
+		recieved.
+
+
+#define INDEXMAX: number of people and families that can be inserted
+
+#define CHIMAX: number of Children allowed in each family
+
+struct per: holds that families it is is; one where it is a parent, and one where they are a child
+
+struct fam: holds the ID of a person for each family member, holds an identifing ID and a repersenativeID
+
+func printVector: prints all the values in a string vector
+
+func printFamCmd: prints the correct format for a "Family" command
+
+func parse: update a string vector to hold the tokens of a given command
+
+func pushValidFamMem: overloaded for int[] and bool[]. adds fam members to nextID if they havent been seen and saves relation if given an int[]
+
+func sharedFam: return a shared familyID between 2 per.  If No similiarity, return -1
+
+func updateRepID: update all RepIDs of families connected to given family to the givenFamily ID
+
+func relatePath: construct array that finds bestpath to connected fam Member and print. Handles "Relate" command
+

@@ -1,0 +1,50 @@
+Family 1 has husband 1, wife 4, and children 7 8.
+Relation: Person 1 -> Family 1 -> Person: 4
+Person 1 and Person 9 are not related.
+	Husband 1 is already a parent
+	Wife 4 is already a parent
+	Child 7 is already a child
+	Family 1 is already in use
+	Husband and Wife Cannot be the same person 2.
+Family 2 has husband 2, wife 3, and children 13 14 1 15.
+Family 3 has husband 9, wife 10, and children 2 16.
+Family 4 has husband 11, wife 12, and children 3 17.
+Family 5 has husband 5, wife 6, and children 4 19 20.
+Family 6 has husband 13, wife 18, and children.
+Family 7 has husband 19, wife 24, and children 21 22 23.
+Family 8 has husband 25, wife 20, and children 28.
+Family 9 has husband 16, wife 26, and children 30 31.
+Family 10 has husband 27, wife 17, and children 33 32.
+Family 14 has husband 40, wife 39, and children 10 42.
+Family 23 has husband 46, wife 45, and children 47.
+Family 24 has husband 50, wife 49, and children.
+Family 22 has husband 44, wife 51, and children 45 48 49.
+Family 21 has husband 43, wife 42, and children 44 41.
+Family 20 has husband 54, wife 0, and children 40 52 53.
+Family 27 has husband 57, wife 55, and children.
+Family 29 has husband 61, wife 60, and children 62.
+Family 30 has husband 63, wife 64, and children 65.
+Family 31 has husband 67, wife 66, and children 69 68.
+Family 32 has husband 70, wife 71, and children 72 73.
+Family 28 has husband 59, wife 58, and children 60 63 66 70.
+Family 33 has husband 75, wife 74, and children 76.
+Family 35 has husband 78, wife 79, and children 80.
+	Husband 78 is already a parent
+Family 34 has husband 0, wife 77, and children 78.
+	Wife 55 is already a parent
+Family 41 has husband 91, wife 90, and children 92.
+Family 40 has husband 88, wife 89, and children 90 94 93.
+Family 42 has husband 95, wife 0, and children.
+Family 38 has husband 84, wife 85, and children 88 87 95.
+Family 37 has husband 83, wife 82, and children 84.
+Family 19 has husband 0, wife 0, and children 82 55 39.
+Family 71 has husband 33, wife 0, and children.
+Family 13 has husband 0, wife 0, and children 9.
+Family 17 has husband 30, wife 29, and children 34 35 36.
+Family 18 has husband 0, wife 31, and children 38.
+Family 15 has husband 0, wife 0, and children 11.
+Family 16 has husband 0, wife 0, and children 12.
+Family 11 has husband 0, wife 0, and children 5.
+Family 12 has husband 0, wife 0, and children 6.
+Relation: Person 1 -> Family 2 -> Person 2 -> Family 3 -> Person 10 -> Family 14 -> Person 39 -> Family 19 -> Person: 55
+Relation: Person 95 -> Family 38 -> Person 84 -> Family 37 -> Person 82 -> Family 19 -> Person 39 -> Family 14 -> Person 10 -> Family 3 -> Person: 2

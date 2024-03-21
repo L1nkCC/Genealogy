@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0067)https://www.cs.uky.edu/~raphael/courses/CS315/prog5/asg.family.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style> code {font-size: 15px; color: blue;} </style>
+<title></title></head><body>
+<div style="text-align:center;"><h1>Programming Assignment:  Families</h1></div>
+<h2>1. Background</h2>
+<p>
+Genealogical databases can be represented by directed bipartite graphs.
+Families and persons are the two kinds of vertex; each is connected only to
+the other.
+The edges from a family vertex to person vertices are labelled "husband",
+"wife", and "child"; there can be multiple "child" edges.
+The edges from a person vertex to family vertices are called "parentage" and
+"marriage".
+</p><p>
+Genealogical data are always incomplete.  There are individuals whose parents
+are
+unknown; their vertices have no "parentage" edge.
+There are families for which the husband or wife is unknown; their vertices
+have no "husband" or "wife" edge.
+There are families with no children yet, or whose children are unknown; these
+families have no "child" edge, or only an incomplete set of "child" edges.
+</p><h2>2. The assignment</h2>
+<p>
+Write a program called "genealogy" that takes the following commands:
+</p><pre>Family n Husband n Wife n Child n Child n ...
+Relate n n
+</pre>
+Here, <code>n</code> stands for an integer.  Each command is on its own line.
+<p>
+The <code>Family</code> command introduces a family vertex and connects it to
+person vertices by "husband", "wife", and "child" edges.
+It also introduces person vertices as necessary and connects them to the new
+family vertex via "parentage" or "marriage" edges.
+The <code>Family</code> command mentions
+as many children as necessary; a family may have no children.
+For instance, <code>Family 13 Husband 0 Wife 3 Child 7 Child 9</code> means
+"Family 13 has unknown husband, wife 3, and
+children 7 and 9."
+Persons and families are numbered independently; family 3 is
+unrelated to person 3.
+When it receives a <code>Family</code> command,
+the program should output a line like "Family 13 has husband 0, wife 3, and
+children 7 9."
+</p><p>
+The <code>Relate</code> command asks for the shortest path between two persons.
+For instance, <code>Relate 5 8</code> asks how persons 5 and 8 are related to each
+other.
+If they are not in the same connected component of the graph, the program
+should print a line like "Persons 5 and 8 are not related."
+The program must use Union-Find to check connectedness before using
+breadth-first search to find a path.
+If they are in the same connected component, the program should print a line
+showing the shortest path connecting them, in the form:
+"Relation: person 5 -&gt; family 2 -&gt; person 18 -&gt; family 6 -&gt; person 8".
+If there are several shortest paths, it only prints one of them.
+</p><p>
+The program must disallow these situations, printing an error message and
+ignoring commands that would cause them:
+(1) A person having multiple marriages (that is, being husband or wife more than
+once).
+(2) A person having multiple parentages (that is, being a child of more than one
+marriage).
+(3) Creating a family with a number that already refers to a family.
+</p><h2>3. Assumptions</h2>
+<p>
+You may make the following assumptions.
+</p><ol>
+<li>
+
+All commands are properly formatted.  You might still want to check input 
+format to verify your own data.
+</li><li>
+
+The <code>Family</code> command never mentions a child numbered 0.
+</li><li>
+
+No family has more than 10 children.
+</li><li>
+
+There are no more than 99 persons and no more than 99
+families. Person numbers and family numbers are in the range
+1 .. 99.  Each number can be used twice, once for a person and once for a
+family; there is no implied connection between a person and a family that happen
+to have the same number.
+</li></ol>
+<p>
+</p><h2>4. Useful tools</h2>
+<p>
+As always, you have access to some useful tools.  First, there is a sample
+<code>Makefile</code> at
+<code><a href="http://www.cs.uky.edu/~raphael/courses/CS315/prog5/Makefile">http://www.cs.uky.edu/~raphael/courses/CS315/prog5/Makefile</a></code>.
+It has a <i>run</i> target that compiles your program (either <code>genealogy.c</code>
+or <code>genealogy.cpp</code>) and runs it.
+</p><p>
+You can also get a working program that satisfies the specifications at 
+<code><a href="http://www.cs.uky.edu/~raphael/courses/CS315/prog5/workingGenealogy">http://www.cs.uky.edu/~raphael/courses/CS315/prog5/workingGenealogy</a></code>.  The
+<code>Makefile</code> mentioned above automatically gets a copy of this file for you if
+you make <i>runWorking</i>.
+</p><h2>5. What to hand in</h2>
+<p>
+Your submission should include your program, all documentation,
+a Makefile,
+your program's output on the data in
+<code><a href="http://www.cs.uky.edu/~raphael/courses/CS315/prog5/data.txt">http://www.cs.uky.edu/~raphael/courses/CS315/prog5/data.txt</a></code>,
+your own test data, and your program's output on that test data.
+</p><h2>6. Extra-credit ideas</h2>
+<ol>
+<li>
+
+Allow persons to have multiple marriages.
+</li><li>
+
+Allow same-sex marriages.
+</li><li>
+
+Notice if a <code>Family</code> command introduces a valid new connection (like a
+cousin marriage) between persons who are already connected.
+</li><li>
+
+In addition to the required output, generate a nicer output for the <code>Relate</code>
+command, such as 
+"Person 5 is a husband in family 2, which has a child person 8, who
+is the wife in family 6, which has a husband person 4" or, even better,
+"5's child 8 is wife of 4".
+</li><li>
+
+Allow the <code>Person</code> and <code>Family</code> commands to take extra information, such
+as
+(for persons) name, birth date, residence, and 
+(for families) marriage date.
+Implement new commands <code>Describe Person n</code> 
+and <code>Describe Marriage n</code> that show this information.
+</li><li>
+
+Show <i>all</i> paths connecting two persons, shortest first.
+</li><li>
+
+Implement the <code>Descendants n</code> command, which displays all the
+descendants of person <code>n</code>. 
+</li><li>
+
+Implement the <code>Ancestors n</code> command, which displays all the ancestors
+of person <code>n</code>. 
+</li></ol>
+
+</body></html>
